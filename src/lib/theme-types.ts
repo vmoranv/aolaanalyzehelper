@@ -1,4 +1,4 @@
-import { MantineColorScheme } from '@mantine/core';
+import type { MantineColorScheme } from '@mantine/core';
 
 export type Theme = 'dark' | 'light' | 'system';
 

@@ -9,11 +9,13 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     if (asChild) {
+      // When asChild is true, return a span instead of div to avoid button-specific props issues
       return (
-        <div
+        <span
           className={cn(buttonVariants({ variant, size, className }))}
-          ref={ref as React.Ref<HTMLDivElement>}
-          {...props}
+          ref={ref as React.Ref<HTMLSpanElement>}
+          role="button"
+          tabIndex={0}
         />
       );
     }
